@@ -1,18 +1,18 @@
 #ifndef StudentManage_H
 #define StudentManage_H
 #include<iostream>
-#include <fstream>
 using namespace std;
 #include<vector>
 #include<algorithm>
 #include<iomanip>
-#include <fstream>
+#include<fstream>
+#include<iostream>
+using namespace std;
 #include "Student.h"
 class StudentManage {
 private:
 	vector <Student> students;
 	string filename;
-	//void UpdateFile();
 public:
 	StudentManage(string fname);
 	void AddStudent();
@@ -20,9 +20,8 @@ public:
 	void ModifyStudent();
 	void DeleteStudent();
 	void SortStudent();
-	void LoadData();
-	void SaveData();
 	void DisplayAllStudent();
+	void SaveData();
 	void Run();
 
 };
