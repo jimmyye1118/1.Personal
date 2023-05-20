@@ -21,3 +21,4 @@
 ### 截圖的第一張圖片是輸入1跟輸入5的執行畫面，也就是增加學生，跟顯示學生的畫面，輸入1完接著輸入姓名學號，各科分數，還有其他2,3,4可以讓使用者選擇，1~5都沒要選了輸入6退出系統，系統會把剛操作的資料全部存進名叫Student的txt檔。
 ## <b>程式畫面截圖:</b>
 ![Alt text](https://github.com/jimmyye1118/1.Personal/blob/master/2023-05-07%20124939.png)
+![Alt text](https://github.com/jimmyye1118/1.Personal/blob/master/2023-05-07%20124939.png)
