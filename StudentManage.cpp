@@ -6,9 +6,11 @@ StudentManage::StudentManage(string fname) {
 		string line, wh, eline;
 		getline(file, line);
 		getline(file, wh);
+		char s;
 		string name, id;
 		int math, english, rank;
-		while (file >> name >> id >> math >> english >> rank) {
+		int sum;
+		while (file >> s >> name >> s >> id >> s >> math >> s >> english >> s >> sum >> s >> rank >> s) {
 			Student s(name, id, math, english);
 			students.push_back(s);
 		}
@@ -93,24 +95,26 @@ void StudentManage::SortStudent() {
 	sort(students.begin(), students.end(), [](Student a, Student b) {return a.getSum() > b.getSum(); });
 }
 void StudentManage::DisplayAllStudent() {
-	for (int i = 0; i < 66; i++) {
+	for (int i = 0; i < 72; i++) {
 		cout << "-";
 	}
 	cout << endl;
-	cout << "|" << setw(8) << "姓名" << setw(6);
-	cout << "|" << setw(11) << "學號" << setw(8);
-	cout << "|" << setw(7) << "數學" << setw(4);
-	cout << "|" << setw(7) << "英文" << setw(4);
-	cout << "|" << setw(7) << "排名" << setw(4) << "|";
+	cout << "|" << setw(10) << left << " 姓名 ";
+	cout << "|" << setw(16) << left << "學號";
+	cout << "|" << setw(10) << left << "數學";
+	cout << "|" << setw(10) << left << "英文";
+	cout << "|" << setw(10) << left << "總分";
+	cout << "|" << setw(10) << left << "排名" << setw(4) << "|";
 	cout << endl;
 	for (int i = 0; i < students.size(); i++) {
-		cout << "|" << left << setw(13) << students[i].getName();
-		cout << "|" << left << setw(18) << students[i].getID();
-		cout << "|" << left << setw(10) << students[i].getEnglish();
-		cout << "|" << left << setw(10) << students[i].getMath();
-		cout << "|" << left << setw(10) << i + 1 << "|" << endl;
+		cout << "|" << setw(10) << left << students[i].getName();
+		cout << "|" << setw(16) << left << students[i].getID();
+		cout << "|" << setw(10) << left << students[i].getMath();
+		cout << "|" << setw(10) << left << students[i].getEnglish();
+		cout << "|" << setw(10) << left << students[i].getSum();
+		cout << "|" << setw(10) << left << i + 1 << "|" << endl;
 	}
-	for (int i = 0; i < 66; i++) {
+	for (int i = 0; i < 72; i++) {
 		cout << "-";
 	}
 	cout << endl;
@@ -118,26 +122,29 @@ void StudentManage::DisplayAllStudent() {
 void StudentManage::SaveData() {
 	fstream file(filename, ios::out);
 	if (file.is_open()) {
-		for (int i = 0; i < 60; i++) {
+		for (int i = 0; i < 72; i++) {
 			file << "-";
 		}
 		file << endl;
-		file << "|" << setw(7) << "姓名" << setw(6);
-		file << "|" << setw(9) << "學號" << setw(6);
-		file << "|" << setw(7) << "數學" << setw(4);
-		file << "|" << setw(7) << "英文" << setw(4);
-		file << "|" << setw(7) << "排名" << setw(4) << "|";
+		file << "|" << setw(11) << left << "姓名";
+		file << "|" << setw(16) << left << "學號";
+		file << "|" << setw(10) << left << "數學";
+		file << "|" << setw(10) << left << "英文";
+		file << "|" << setw(10) << left << "總分";
+		file << "|" << setw(10) << left << "排名" << setw(4) << "|";
 		file << endl;
 		for (int i = 0; i < students.size(); i++) {
-			file << left << setw(14) << students[i].getName();
-			file << left << setw(14) << students[i].getID() << " ";
-			file << left << setw(10) << students[i].getMath() << " ";
-			file << left << setw(10) << students[i].getEnglish() << " ";
-			file << left << setw(10) << i + 1 << endl;
+			file << "|" << setw(10) << left << students[i].getName();
+			file << "|" << setw(16) << left << students[i].getID();
+			file << "|" << setw(10) << left << students[i].getMath();
+			file << "|" << setw(10) << left << students[i].getEnglish();
+			file << "|" << setw(10) << left << students[i].getSum();
+			file << "|" << setw(10) << left << i + 1 << "|" << endl;
 		}
-		for (int i = 0; i < 60; i++) {
+		for (int i = 0; i < 72; i++) {
 			file << "-";
 		}
+		file << endl;
 
 		cout << "已保存 " << students.size() << " 名學生資料。" << endl;
 		file.close();
